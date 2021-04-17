@@ -73,31 +73,33 @@
         <!--Pokemon Name-->
         <scene sceneID="SSJ-kK-FH7">
             <objects>
-                <viewController id="Ow8-ig-grg" sceneMemberID="viewController">
+                <viewController id="Ow8-ig-grg" customClass="PokemonPurchaseViewController" customModule="PokemonAPI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YPb-pL-BaJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zC1-Oa-1av">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zC1-Oa-1av">
                                 <rect key="frame" x="71" y="222" width="273" height="297"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="297" id="eG8-60-BsJ"/>
+                                </constraints>
                             </imageView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" text="" placeholder="Please enter the pokemon name or ID:" translatesAutoresizingMaskIntoConstraints="NO" id="6sT-or-YhN">
+                            <searchBar contentMode="redraw" text="" placeholder="Please enter the pokemon name or ID:" translatesAutoresizingMaskIntoConstraints="NO" id="6sT-or-YhN">
                                 <rect key="frame" x="0.0" y="140" width="414" height="56"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$13.95" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcW-6a-4dz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$13.95" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcW-6a-4dz">
                                 <rect key="frame" x="71" y="541" width="80" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1PR-re-9Vj">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1PR-re-9Vj">
                                 <rect key="frame" x="71" y="704" width="273" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="Jee-zz-9dD"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
                                 <state key="normal" title="Buy">
                                     <color key="titleColor" systemColor="labelColor"/>
@@ -106,10 +108,26 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yju-X8-YY5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6sT-or-YhN" firstAttribute="centerX" secondItem="YPb-pL-BaJ" secondAttribute="centerX" id="1oL-bd-opc"/>
+                            <constraint firstItem="6sT-or-YhN" firstAttribute="top" secondItem="yju-X8-YY5" secondAttribute="top" id="3L4-Ae-SVD"/>
+                            <constraint firstItem="zC1-Oa-1av" firstAttribute="leading" secondItem="gcW-6a-4dz" secondAttribute="leading" id="Gnj-WO-KRx"/>
+                            <constraint firstItem="yju-X8-YY5" firstAttribute="bottom" secondItem="1PR-re-9Vj" secondAttribute="bottom" constant="103" id="Gwk-nV-7Yi"/>
+                            <constraint firstItem="6sT-or-YhN" firstAttribute="leading" secondItem="yju-X8-YY5" secondAttribute="leading" id="HQT-Q2-ncW"/>
+                            <constraint firstItem="gcW-6a-4dz" firstAttribute="leading" secondItem="1PR-re-9Vj" secondAttribute="leading" id="VNc-BT-sjm"/>
+                            <constraint firstItem="zC1-Oa-1av" firstAttribute="leading" secondItem="yju-X8-YY5" secondAttribute="leading" constant="71" id="lzz-Dd-HWE"/>
+                            <constraint firstItem="zC1-Oa-1av" firstAttribute="top" secondItem="6sT-or-YhN" secondAttribute="bottom" constant="26" id="mcq-JC-Vrh"/>
+                            <constraint firstItem="6sT-or-YhN" firstAttribute="centerX" secondItem="zC1-Oa-1av" secondAttribute="centerX" id="pkv-WM-giT"/>
+                            <constraint firstItem="gcW-6a-4dz" firstAttribute="top" secondItem="zC1-Oa-1av" secondAttribute="bottom" constant="22" id="ro3-Xd-2j7"/>
+                            <constraint firstItem="zC1-Oa-1av" firstAttribute="trailing" secondItem="1PR-re-9Vj" secondAttribute="trailing" id="rqc-Hj-iri"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Pokemon Name" id="Od2-kO-CY0">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="wjR-4Z-ZTJ"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="buyButton" destination="1PR-re-9Vj" id="d0g-zp-C4D"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mvU-Sn-4LV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
