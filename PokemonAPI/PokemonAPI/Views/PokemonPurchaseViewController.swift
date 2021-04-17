@@ -9,20 +9,45 @@ import UIKit
 
 class PokemonPurchaseViewController: UIViewController {
     
-    // MARK: - PROPERTIES
     // MARK: - OUTLETS
+    @IBOutlet var searchBar: UISearchBar!
+    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var priceLabel: UILabel!
+    @IBOutlet var saveButton: UIBarButtonItem!
+    @IBOutlet var buyButton: UIButton!
     
-    @IBOutlet weak var buyButton: UIButton!
+    // MARK: - PROPERTIES
+    
+    var pokemon: Pokemon? {
+        didSet {
+            updateViews()
+        }
+    }
+    
+    var pokemonController: PokemonController? {
+        didSet {
+            updateViews()
+        }
+    }
+    
+    func hideKeyboard() {
+        searchBar.resignFirstResponder()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if buyButton.isEnabled == false {
-            buyButton.backgroundColor = UIColor.gray
-        }
-        buyButton.layer.cornerRadius = 10
-
-        // Do any additional setup after loading the view.
+        
+        updateViews()
+        
+        searchBar.delegate = self
     }
+    
+    // MARK: UPDATE VIEWS
+    
+    func updateViews() {
+        
+    }
+    // MARK: - ACTIONS
     
 
     /*
@@ -35,4 +60,8 @@ class PokemonPurchaseViewController: UIViewController {
     }
     */
 
+}
+
+extension PokemonPurchaseViewController: UISearchBarDelegate {
+    
 }
