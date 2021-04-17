@@ -16,5 +16,9 @@ struct Pokemon: Codable, Equatable {
     
     struct SpriteFront: Codable, Equatable {
         let imageUrl: String
+        
+        enum CodingKeys: String, CodingKey {
+            case imageUrl = "front_default"
+        }
     }
 }
