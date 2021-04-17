@@ -13,6 +13,8 @@
 		FAA34FFF262B957400380BFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAA34FFD262B957400380BFC /* Main.storyboard */; };
 		FAA35001262B957500380BFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA35000262B957500380BFC /* Assets.xcassets */; };
 		FAA35004262B957500380BFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAA35002262B957500380BFC /* LaunchScreen.storyboard */; };
+		FAA3500E262B976600380BFC /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA3500D262B976600380BFC /* UserModel.swift */; };
+		FAA35011262B9B0F00380BFC /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA35010262B9B0F00380BFC /* Pokemon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		FAA35000262B957500380BFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAA35003262B957500380BFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAA35005262B957500380BFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAA3500D262B976600380BFC /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		FAA35010262B9B0F00380BFC /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				FAA34FF7262B957400380BFC /* AppDelegate.swift */,
+				FAA3500D262B976600380BFC /* UserModel.swift */,
+				FAA35010262B9B0F00380BFC /* Pokemon.swift */,
 				FAA34FF9262B957400380BFC /* SceneDelegate.swift */,
 				FAA34FFB262B957400380BFC /* ViewController.swift */,
 				FAA34FFD262B957400380BFC /* Main.storyboard */,
@@ -137,8 +143,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAA35011262B9B0F00380BFC /* Pokemon.swift in Sources */,
 				FAA34FFC262B957400380BFC /* ViewController.swift in Sources */,
 				FAA34FF8262B957400380BFC /* AppDelegate.swift in Sources */,
+				FAA3500E262B976600380BFC /* UserModel.swift in Sources */,
 				FAA34FFA262B957400380BFC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
