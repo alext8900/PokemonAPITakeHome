@@ -36,9 +36,6 @@ class PokemonPurchaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if !buyButton.isEnabled {
-            buyButton.backgroundColor = UIColor.gray
-        }
         buyButton.layer.cornerRadius = 10
         
         updateViews()
@@ -61,11 +58,9 @@ class PokemonPurchaseViewController: UIViewController {
         guard isViewLoaded else { return }
         guard let pokemonObject = pokemon else {
             title = "Pokemon Search"
+            buyButton.backgroundColor = UIColor.gray
             return }
-        
-        
-        buyButton.layer.cornerRadius = 10
-        
+        buyButton.isEnabled = true
         title = pokemonObject.name.capitalized
         priceLabel.text = "$\(Double(pokemonObject.base_experience * 6) * 0.01)"
         
@@ -80,6 +75,8 @@ class PokemonPurchaseViewController: UIViewController {
 extension PokemonPurchaseViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         hideKeyboard()
+        buyButton.isEnabled = true
+        buyButton.backgroundColor = UIColor.systemBlue
         guard let searchTerm = searchBar.text else { return }
         
         pokemonController?.fetchPokemon(pokemonName: searchTerm, completion: { pokemonObject in

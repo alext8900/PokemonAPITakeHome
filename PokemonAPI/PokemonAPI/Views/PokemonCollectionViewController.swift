@@ -46,7 +46,7 @@ class PokemonCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PokemonCollectionViewCell
         let pokemonMonster = pokemonController.pokemonList[indexPath.item]
-        cell.nameLabel.text = pokemonMonster.name
+        cell.nameLabel.text = pokemonMonster.name.capitalized
         
         return cell
     }
