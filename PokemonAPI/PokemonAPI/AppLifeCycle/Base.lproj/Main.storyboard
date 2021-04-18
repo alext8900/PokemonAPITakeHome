@@ -127,6 +127,10 @@
                     </navigationItem>
                     <connections>
                         <outlet property="buyButton" destination="1PR-re-9Vj" id="d0g-zp-C4D"/>
+                        <outlet property="imageView" destination="zC1-Oa-1av" id="tFW-4x-3SV"/>
+                        <outlet property="priceLabel" destination="gcW-6a-4dz" id="UZl-rJ-Ejp"/>
+                        <outlet property="saveButton" destination="wjR-4Z-ZTJ" id="95c-G5-D59"/>
+                        <outlet property="searchBar" destination="6sT-or-YhN" id="OTf-Zk-Xhu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mvU-Sn-4LV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

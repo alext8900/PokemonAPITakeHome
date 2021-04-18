@@ -36,32 +36,65 @@ class PokemonPurchaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if !buyButton.isEnabled {
+            buyButton.backgroundColor = UIColor.gray
+        }
+        buyButton.layer.cornerRadius = 10
         
         updateViews()
         
         searchBar.delegate = self
     }
+    // MARK: - ACTIONS
+    
+    @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
+        guard let pokemon = pokemon else { return }
+        pokemonController?.addPokemon(pokemon: pokemon)
+        navigationController?.popViewController(animated: true)
+    }
+
+    
     
     // MARK: UPDATE VIEWS
     
     func updateViews() {
+        guard isViewLoaded else { return }
+        guard let pokemonObject = pokemon else {
+            title = "Pokemon Search"
+            return }
         
+        
+        buyButton.layer.cornerRadius = 10
+        
+        title = pokemonObject.name.capitalized
+        priceLabel.text = "$\(Double(pokemonObject.base_experience * 6) * 0.01)"
+        
+        
+        pokemonController?.fetchImage(from: pokemonObject.sprites.imageUrl, completion: { pokemonImage in
+            DispatchQueue.main.async {
+                self.imageView.image = pokemonImage
+            }
+        })
     }
-    // MARK: - ACTIONS
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
-
 extension PokemonPurchaseViewController: UISearchBarDelegate {
-    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        hideKeyboard()
+        guard let searchTerm = searchBar.text else { return }
+        
+        pokemonController?.fetchPokemon(pokemonName: searchTerm, completion: { pokemonObject in
+            guard let pokemon = try? pokemonObject.get() else { return }
+            
+            DispatchQueue.main.async {
+                self.pokemon = pokemon
+            }
+        })
+        
+        guard let pokemonImageUrl = pokemon?.sprites.imageUrl else { return }
+        pokemonController?.fetchImage(from: pokemonImageUrl, completion: { pokemonImage in
+            DispatchQueue.main.async {
+                self.imageView.image = pokemonImage
+            }
+        })
+    }
 }

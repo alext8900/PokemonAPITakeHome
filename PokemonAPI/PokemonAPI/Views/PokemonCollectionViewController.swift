@@ -9,7 +9,18 @@ import UIKit
 
 private let reuseIdentifier = "PokemonCell"
 
+
 class PokemonCollectionViewController: UICollectionViewController {
+    
+    // MARK: - PROPERTIES
+    
+    let pokemonController = PokemonController()
+    
+    var pokemon: Pokemon! {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
