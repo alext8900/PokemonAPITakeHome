@@ -21,7 +21,7 @@ class PokemonCollectionViewController: UICollectionViewController {
             collectionView.reloadData()
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -30,24 +30,24 @@ class PokemonCollectionViewController: UICollectionViewController {
         super.viewWillAppear(animated)
         collectionView.reloadData()
     }
-
-
+    
+    
     // MARK: UICollectionViewDataSource
-
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-
-
+    
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pokemonController.pokemonList.count
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PokemonCollectionViewCell
         let pokemonMonster = pokemonController.pokemonList[indexPath.item]
         cell.nameLabel.text = pokemonMonster.name
-    
+        
         return cell
     }
     

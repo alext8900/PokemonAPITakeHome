@@ -35,30 +35,54 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3DI-LJ-yRE">
-                            <size key="itemSize" width="128" height="128"/>
+                            <size key="itemSize" width="154" height="205"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PokemonCell" id="AbS-X2-Om5" customClass="PokemonCollectionViewCell" customModule="PokemonAPI" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                <rect key="frame" x="0.0" y="0.0" width="140" height="180"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Mnx-hH-RzH">
-                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="140" height="180"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bd0-60-hfb">
-                                            <rect key="frame" x="43" y="99" width="42" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokeball" translatesAutoresizingMaskIntoConstraints="NO" id="BR7-rL-zDz">
+                                            <rect key="frame" x="10" y="10" width="120" height="120"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="120" id="WyS-Fl-jWJ"/>
+                                                <constraint firstAttribute="height" constant="120" id="jSV-Wq-JkM"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KOO-c9-rNG">
+                                            <rect key="frame" x="10" y="134" width="120" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="120" id="G4a-KO-rMv"/>
+                                                <constraint firstAttribute="height" constant="40" id="eDo-oy-TwX"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="KOO-c9-rNG" firstAttribute="leading" secondItem="BR7-rL-zDz" secondAttribute="leading" id="2iq-1b-6l1"/>
+                                        <constraint firstItem="KOO-c9-rNG" firstAttribute="leading" secondItem="Mnx-hH-RzH" secondAttribute="leading" constant="10" id="4C9-VT-2dm"/>
+                                        <constraint firstAttribute="trailing" secondItem="KOO-c9-rNG" secondAttribute="trailing" constant="10" id="Fq8-At-17o"/>
+                                        <constraint firstItem="KOO-c9-rNG" firstAttribute="top" secondItem="BR7-rL-zDz" secondAttribute="bottom" constant="4" id="N6V-dv-9Ii"/>
+                                        <constraint firstAttribute="bottom" secondItem="KOO-c9-rNG" secondAttribute="bottom" constant="6" id="TtP-DN-Yfs"/>
+                                        <constraint firstAttribute="trailing" secondItem="BR7-rL-zDz" secondAttribute="trailing" constant="10" id="UMj-6K-jvx"/>
+                                        <constraint firstItem="KOO-c9-rNG" firstAttribute="top" secondItem="BR7-rL-zDz" secondAttribute="bottom" constant="4" id="US6-T2-VJz"/>
+                                        <constraint firstItem="KOO-c9-rNG" firstAttribute="trailing" secondItem="BR7-rL-zDz" secondAttribute="trailing" id="YIL-h8-6Eh"/>
+                                        <constraint firstItem="BR7-rL-zDz" firstAttribute="top" secondItem="Mnx-hH-RzH" secondAttribute="top" constant="10" id="dIG-TF-XIg"/>
+                                        <constraint firstItem="BR7-rL-zDz" firstAttribute="leading" secondItem="Mnx-hH-RzH" secondAttribute="leading" constant="10" id="dV2-eh-HLr"/>
+                                    </constraints>
                                 </collectionViewCellContentView>
+                                <size key="customSize" width="140" height="180"/>
                                 <connections>
-                                    <outlet property="nameLabel" destination="Bd0-60-hfb" id="GMg-NE-PfV"/>
+                                    <outlet property="image" destination="BR7-rL-zDz" id="5ai-E3-ZIE"/>
+                                    <outlet property="nameLabel" destination="KOO-c9-rNG" id="h0U-vp-zXe"/>
                                     <segue destination="Ow8-ig-grg" kind="show" identifier="SelectSegue" id="Me0-AA-EW3"/>
                                 </connections>
                             </collectionViewCell>
@@ -78,7 +102,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fxC-pd-HBP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="23" y="92"/>
+            <point key="canvasLocation" x="21.739130434782609" y="91.741071428571431"/>
         </scene>
         <!--Pokemon Name-->
         <scene sceneID="SSJ-kK-FH7">
@@ -156,6 +180,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="pokeball" width="2000" height="1991"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
