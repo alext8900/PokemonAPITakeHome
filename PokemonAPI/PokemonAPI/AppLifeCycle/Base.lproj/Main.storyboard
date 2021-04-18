@@ -29,7 +29,7 @@
         <!--Pokemon-->
         <scene sceneID="HON-rJ-ltA">
             <objects>
-                <collectionViewController id="wXt-xc-ld8" sceneMemberID="viewController">
+                <collectionViewController id="wXt-xc-ld8" customClass="PokemonCollectionViewController" customModule="PokemonAPI" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="oTf-q1-apM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,15 +41,25 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PokemonCell" id="AbS-X2-Om5">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PokemonCell" id="AbS-X2-Om5" customClass="PokemonCollectionViewCell" customModule="PokemonAPI" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Mnx-hH-RzH">
                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bd0-60-hfb">
+                                            <rect key="frame" x="43" y="99" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </collectionViewCellContentView>
                                 <connections>
-                                    <segue destination="Ow8-ig-grg" kind="show" id="Me0-AA-EW3"/>
+                                    <outlet property="nameLabel" destination="Bd0-60-hfb" id="GMg-NE-PfV"/>
+                                    <segue destination="Ow8-ig-grg" kind="show" identifier="SelectSegue" id="Me0-AA-EW3"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -61,14 +71,14 @@
                     <navigationItem key="navigationItem" title="Pokemon" id="Xba-y4-1kQ">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="magnifyingglass" catalog="system" id="ZQo-ZU-2rQ">
                             <connections>
-                                <segue destination="Ow8-ig-grg" kind="show" id="IgO-lf-Ldu"/>
+                                <segue destination="Ow8-ig-grg" kind="show" identifier="SearchSegue" id="IgO-lf-Ldu"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fxC-pd-HBP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9" y="92"/>
+            <point key="canvasLocation" x="23" y="92"/>
         </scene>
         <!--Pokemon Name-->
         <scene sceneID="SSJ-kK-FH7">
@@ -123,13 +133,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Pokemon Name" id="Od2-kO-CY0">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="wjR-4Z-ZTJ"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="wjR-4Z-ZTJ">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="Ow8-ig-grg" id="ro7-2J-12P"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="buyButton" destination="1PR-re-9Vj" id="d0g-zp-C4D"/>
                         <outlet property="imageView" destination="zC1-Oa-1av" id="tFW-4x-3SV"/>
                         <outlet property="priceLabel" destination="gcW-6a-4dz" id="UZl-rJ-Ejp"/>
-                        <outlet property="saveButton" destination="wjR-4Z-ZTJ" id="95c-G5-D59"/>
                         <outlet property="searchBar" destination="6sT-or-YhN" id="OTf-Zk-Xhu"/>
                     </connections>
                 </viewController>
@@ -139,7 +152,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Me0-AA-EW3"/>
+        <segue reference="IgO-lf-Ldu"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
