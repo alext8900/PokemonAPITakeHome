@@ -30,6 +30,8 @@ class PokemonPurchaseViewController: UIViewController {
         }
     }
     
+    var user = User()
+    
     func hideKeyboard() {
         searchBar.resignFirstResponder()
     }
@@ -49,9 +51,22 @@ class PokemonPurchaseViewController: UIViewController {
         pokemonController?.addPokemon(pokemon: pokemon)
         navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func buyButton(_ sender: UIButton) {
+        if user.balance >= Double(pokemon!.base_experience * 6) * 0.01 {
+            performSegue(withIdentifier: "BuySegue", sender: nil)
+        } else {
+            self.showError()
+        }
+    }
+    func showError() {
+        DispatchQueue.main.async {
+            let ac = UIAlertController(title: "Insufficient Balance", message: "Not enough money to buy \(self.pokemon?.name ?? "pokemon") 🥺", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(ac, animated: true)
+        }
+    }
 
-    
-    
     // MARK: UPDATE VIEWS
     
     func updateViews() {
@@ -59,6 +74,7 @@ class PokemonPurchaseViewController: UIViewController {
         guard let pokemonObject = pokemon else {
             title = "Pokemon Search"
             buyButton.backgroundColor = UIColor.gray
+            
             return }
         buyButton.isEnabled = true
         title = pokemonObject.name.capitalized
@@ -71,7 +87,16 @@ class PokemonPurchaseViewController: UIViewController {
             }
         })
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "BuySegue" {
+            guard let buyVC = segue.destination as? PurchaseViewController else { return }
+            buyVC.pokemonController = pokemonController
+            buyVC.pokemon = pokemon
+        }
+    }
 }
+
 extension PokemonPurchaseViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         hideKeyboard()
@@ -81,7 +106,7 @@ extension PokemonPurchaseViewController: UISearchBarDelegate {
         
         pokemonController?.fetchPokemon(pokemonName: searchTerm, completion: { pokemonObject in
             guard let pokemon = try? pokemonObject.get() else { return }
-            
+
             DispatchQueue.main.async {
                 self.pokemon = pokemon
             }

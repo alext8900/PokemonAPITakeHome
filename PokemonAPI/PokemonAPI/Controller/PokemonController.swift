@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+let pokemonPurchaseViewController = PokemonPurchaseViewController()
 enum HTTPMethod: String {
     case get = "GET"
 }
