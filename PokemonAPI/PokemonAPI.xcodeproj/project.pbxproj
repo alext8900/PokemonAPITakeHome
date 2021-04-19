@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA727DA3262D1C3F00C85509 /* PokemonCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA35015262B9E1A00380BFC /* PokemonCollectionViewController.swift */; };
+		FA727DA4262D1C3F00C85509 /* PokemonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC1500B262BB51300FB8CB3 /* PokemonCollectionViewCell.swift */; };
 		FAA34FF8262B957400380BFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA34FF7262B957400380BFC /* AppDelegate.swift */; };
 		FAA34FFA262B957400380BFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA34FF9262B957400380BFC /* SceneDelegate.swift */; };
 		FAA34FFF262B957400380BFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAA34FFD262B957400380BFC /* Main.storyboard */; };
@@ -14,10 +16,8 @@
 		FAA35004262B957500380BFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAA35002262B957500380BFC /* LaunchScreen.storyboard */; };
 		FAA3500E262B976600380BFC /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA3500D262B976600380BFC /* UserModel.swift */; };
 		FAA35011262B9B0F00380BFC /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA35010262B9B0F00380BFC /* Pokemon.swift */; };
-		FAA35016262B9E1A00380BFC /* PokemonCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA35015262B9E1A00380BFC /* PokemonCollectionViewController.swift */; };
 		FAA3501A262B9E4300380BFC /* PokemonPurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA35019262B9E4300380BFC /* PokemonPurchaseViewController.swift */; };
 		FAA35023262BA19200380BFC /* PokemonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA35022262BA19200380BFC /* PokemonController.swift */; };
-		FAC1500C262BB51300FB8CB3 /* PokemonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC1500B262BB51300FB8CB3 /* PokemonCollectionViewCell.swift */; };
 		FAC15014262C006700FB8CB3 /* PurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC15013262C006700FB8CB3 /* PurchaseViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -187,13 +187,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA727DA3262D1C3F00C85509 /* PokemonCollectionViewController.swift in Sources */,
+				FA727DA4262D1C3F00C85509 /* PokemonCollectionViewCell.swift in Sources */,
 				FAA35011262B9B0F00380BFC /* Pokemon.swift in Sources */,
 				FAA35023262BA19200380BFC /* PokemonController.swift in Sources */,
 				FAC15014262C006700FB8CB3 /* PurchaseViewController.swift in Sources */,
-				FAC1500C262BB51300FB8CB3 /* PokemonCollectionViewCell.swift in Sources */,
 				FAA34FF8262B957400380BFC /* AppDelegate.swift in Sources */,
 				FAA3500E262B976600380BFC /* UserModel.swift in Sources */,
-				FAA35016262B9E1A00380BFC /* PokemonCollectionViewController.swift in Sources */,
 				FAA34FFA262B957400380BFC /* SceneDelegate.swift in Sources */,
 				FAA3501A262B9E4300380BFC /* PokemonPurchaseViewController.swift in Sources */,
 			);

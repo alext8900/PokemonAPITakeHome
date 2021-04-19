@@ -18,6 +18,8 @@ class PokemonPurchaseViewController: UIViewController {
     
     // MARK: - PROPERTIES
     
+    var pokemonCost: Double?
+    
     var pokemon: Pokemon? {
         didSet {
             updateViews()
@@ -78,8 +80,17 @@ class PokemonPurchaseViewController: UIViewController {
             return }
         buyButton.isEnabled = true
         title = pokemonObject.name.capitalized
-        priceLabel.text = "$\(Double(pokemonObject.base_experience * 6) * 0.01)"
         
+        let formatter = NumberFormatter()
+        formatter.usesGroupingSeparator = true
+        formatter.locale = Locale.current
+        formatter.numberStyle = .currency
+        
+        pokemonCost = (Double(pokemonObject.base_experience * 6) * 0.01)
+        
+        let priceString = formatter.string(from: NSNumber(value: pokemonCost ?? 0))!
+        
+        priceLabel.text = priceString
         
         pokemonController?.fetchImage(from: pokemonObject.sprites.imageUrl, completion: { pokemonImage in
             DispatchQueue.main.async {
