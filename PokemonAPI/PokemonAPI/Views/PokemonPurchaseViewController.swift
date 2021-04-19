@@ -104,6 +104,7 @@ class PokemonPurchaseViewController: UIViewController {
             guard let buyVC = segue.destination as? PurchaseViewController else { return }
             buyVC.pokemonController = pokemonController
             buyVC.pokemon = pokemon
+            buyVC.pokemonCost = pokemonCost
         }
     }
 }

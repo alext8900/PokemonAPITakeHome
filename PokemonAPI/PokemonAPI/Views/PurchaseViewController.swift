@@ -11,6 +11,8 @@ class PurchaseViewController: UIViewController {
     
     var user = User()
     
+    var pokemonCost: Double?
+    
     var pokemon: Pokemon? {
         didSet {
             updateViews()
@@ -41,7 +43,13 @@ class PurchaseViewController: UIViewController {
         guard let pokemonObject = pokemon else { return }
         
         nameLabel.text = pokemonObject.name.capitalized
-        priceLabel.text = "$\(Double(pokemonObject.base_experience * 6) * 0.01)"
+        let formatter = NumberFormatter()
+        formatter.usesGroupingSeparator = true
+        formatter.numberStyle = .currency
+        formatter.locale = Locale.current
+        
+        let priceString = formatter.string(from: NSNumber(value: pokemonCost ?? 0))!
+        priceLabel.text = priceString
         userName.text = "\(user.name) \(user.last)"
         userEmail.text = user.email
     }
