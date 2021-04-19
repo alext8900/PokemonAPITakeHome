@@ -20,6 +20,8 @@ class PokemonPurchaseViewController: UIViewController {
     
     var pokemonCost: Double?
     
+    var user = User()
+    
     var pokemon: Pokemon? {
         didSet {
             updateViews()
@@ -31,8 +33,6 @@ class PokemonPurchaseViewController: UIViewController {
             updateViews()
         }
     }
-    
-    var user = User()
     
     func hideKeyboard() {
         searchBar.resignFirstResponder()
@@ -61,11 +61,20 @@ class PokemonPurchaseViewController: UIViewController {
             self.showError()
         }
     }
+    
     func showError() {
         DispatchQueue.main.async {
             let ac = UIAlertController(title: "Insufficient Balance", message: "Not enough money to buy \(self.pokemon?.name ?? "pokemon") 🥺", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "OK", style: .default))
             self.present(ac, animated: true)
+        }
+    }
+    
+    func pokemonError() {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Pokemon not found", message: "The Pokemon you searched either doesn't exist in our database or you spelled it incorrectly. Check your spelling and try again.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true)
         }
     }
 
@@ -75,7 +84,6 @@ class PokemonPurchaseViewController: UIViewController {
         guard isViewLoaded else { return }
         guard let pokemonObject = pokemon else {
             title = "Pokemon Search"
-            buyButton.backgroundColor = UIColor.gray
             
             return }
         buyButton.isEnabled = true
@@ -112,15 +120,19 @@ class PokemonPurchaseViewController: UIViewController {
 extension PokemonPurchaseViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         hideKeyboard()
-        buyButton.isEnabled = true
-        buyButton.backgroundColor = UIColor.systemBlue
         guard let searchTerm = searchBar.text else { return }
         
-        pokemonController?.fetchPokemon(pokemonName: searchTerm, completion: { pokemonObject in
-            guard let pokemon = try? pokemonObject.get() else { return }
-
-            DispatchQueue.main.async {
-                self.pokemon = pokemon
+        pokemonController?.fetchPokemon(pokemonName: searchTerm, completion: { result in
+            
+            switch result {
+            case .success( _):
+                guard let pokemon = try? result.get() else { return }
+                DispatchQueue.main.async {
+                    self.pokemon = pokemon
+                }
+                
+            case.failure( _):
+                self.pokemonError()
             }
         })
         

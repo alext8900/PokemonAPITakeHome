@@ -46,6 +46,7 @@ class PokemonController {
                 completion(.success(pokemonSearch))
             } catch {
                 print("Unable to decode data into object of type [Pokemon]: \(error.localizedDescription)")
+                completion(.failure(error))
             }
         }.resume()
     }
