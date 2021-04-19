@@ -64,7 +64,7 @@ class PokemonPurchaseViewController: UIViewController {
     
     func showError() {
         DispatchQueue.main.async {
-            let ac = UIAlertController(title: "Insufficient Balance", message: "Not enough money to buy \(self.pokemon?.name ?? "pokemon") 🥺", preferredStyle: .alert)
+            let ac = UIAlertController(title: "Insufficient Balance", message: "Not enough money to purchase \(self.pokemon?.name ?? "pokemon"), only $\(self.user.balance) available to spend.", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "OK", style: .default))
             self.present(ac, animated: true)
         }
